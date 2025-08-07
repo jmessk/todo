@@ -1,25 +1,25 @@
 services:
 
-  backend:
+  server:
     build:
-      context: ./backend
+      context: ./server
       dockerfile: Dockerfile
       args:
         - UID=1000
         - GID=1000
     volumes:
-      - ./backend:/home/user/app
-    working_dir: /home/user/app
+      - ./server:/home/user/server
+    working_dir: /home/user/server
     entrypoint: /bin/bash
 
-  frontend:
+  ui:
     build:
-      context: ./frontend
+      context: ./ui
       dockerfile: Dockerfile
       args:
         - UID=1000
         - GID=1000
     volumes:
-      - ./frontend:/home/user/app
-    working_dir: /home/user/app
+      - ./ui:/home/user/ui
+    working_dir: /home/user/ui
     entrypoint: /bin/bash

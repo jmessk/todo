@@ -8,4 +8,5 @@ ARG GID
 RUN groupadd -g ${GID} user && \
     useradd -m -s /bin/bash -u ${UID} -g ${GID} user
 
+USER user
 WORKDIR /user
