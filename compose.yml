@@ -1,0 +1,25 @@
+services:
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      args:
+        - UID=1000
+        - GID=1000
+    volumes:
+      - ./backend:/home/user/app
+    working_dir: /home/user/app
+    entrypoint: /bin/bash
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - UID=1000
+        - GID=1000
+    volumes:
+      - ./frontend:/home/user/app
+    working_dir: /home/user/app
+    entrypoint: /bin/bash
