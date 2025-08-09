@@ -1,6 +1,6 @@
-ARG PYTHON_VERSION=3.14
+ARG PYTHON_VERSION=3.13
 
-FROM astral/uv:python${PYTHON_VERSION}-rc-bookworm
+FROM astral/uv:python${PYTHON_VERSION}-bookworm
 
 ARG UID
 ARG GID

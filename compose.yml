@@ -9,6 +9,7 @@ services:
         - GID=1000
     volumes:
       - ./server:/home/user/server
+    network_mode: host
     working_dir: /home/user/server
     entrypoint: /bin/bash
 
