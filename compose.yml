@@ -7,9 +7,10 @@ services:
       args:
         - UID=1000
         - GID=1000
+    networks:
+      - app
     volumes:
       - ./server:/home/user/server
-    network_mode: host
     working_dir: /home/user/server
     entrypoint: /bin/bash
 
@@ -20,7 +21,28 @@ services:
       args:
         - UID=1000
         - GID=1000
+    networks:
+      - app
+    ports:
+      - 3000:3000
     volumes:
       - ./ui:/home/user/ui
     working_dir: /home/user/ui
     entrypoint: /bin/bash
+
+  db:
+    image: postgres:latest 
+    networks:
+      - app
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: todo
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
+
+networks:
+  app:
