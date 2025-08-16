@@ -13,8 +13,16 @@ uv run uvicorn main:app --app-dir src --host 0.0.0.0 --reload
     uv run alembic init migrations
     ```
 
+- check current migration and history
+
+    ```bash
+    uv run alembic current # current
+    uv run alembic history [--verbose] # history
+    ```
+
 - create migration
 
     ```bash
-    uv run alembic revision --autogenerate -m "initial migration"
+    uv run alembic revision --autogenerate -m "Create todo table"
     ```
+
