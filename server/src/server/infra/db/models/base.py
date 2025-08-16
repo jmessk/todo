@@ -5,4 +5,4 @@ class Base(DeclarativeBase):
     pass
 
 
-from .todo import Todo  # noqa: E402, F401
+from .todo_item import Todo  # noqa: E402, F401

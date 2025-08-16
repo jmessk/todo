@@ -1,19 +1,17 @@
 from datetime import datetime
-from uuid_extensions import uuid7
 from sqlalchemy import String, Boolean, DateTime, Uuid, text
 from sqlalchemy.orm import Mapped, mapped_column
 
 from .base import Base
 
 
-class Todo(Base):
+class TodoItem(Base):
     __tablename__ = "todos"
 
     id: Mapped[Uuid] = mapped_column(
         Uuid(as_uuid=True),
         primary_key=True,
         nullable=False,
-        default=uuid7,
         index=True,
     )
     title: Mapped[str] = mapped_column(String(200), nullable=False, index=True)

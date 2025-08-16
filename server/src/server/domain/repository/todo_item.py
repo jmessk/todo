@@ -1,20 +1,20 @@
 from abc import ABC, abstractmethod
 from uuid_utils import UUID
 
-from ..model.todo import TodoItem
+from ..model.todo_item import TodoItem
 
 
 class TodoItemRepository(ABC):
     @abstractmethod
-    async def save(self, todo: TodoItem) -> TodoItem:
-        pass
-
-    @abstractmethod
-    async def find_by_id(self, todo_id: UUID) -> TodoItem | None:
+    async def add(self, todo: TodoItem) -> TodoItem:
         pass
 
     @abstractmethod
     async def find_all(self) -> list[TodoItem]:
+        pass
+
+    @abstractmethod
+    async def find_by_id(self, todo_id: UUID) -> TodoItem | None:
         pass
 
     @abstractmethod

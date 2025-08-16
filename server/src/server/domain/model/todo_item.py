@@ -6,11 +6,14 @@ from uuid_utils import UUID, uuid7
 class TodoItem(BaseModel):
     id: UUID = Field(default_factory=uuid7)
     title: str = Field(max_length=200)
-    description: str | None = Field(default=None, max_length=500)
+    description: str | None = Field(default=None, max_length=1000)
     status: bool = Field(default=False)
     created_at: datetime = Field(default_factory=datetime.now)
     updated_at: datetime | None = Field(default=None)
     deleted_at: datetime | None = Field(default=None)
+
+    class Config:
+        orm_mode = True
 
     @classmethod
     def create(cls, title: str, description: str | None = None) -> "TodoItem":
