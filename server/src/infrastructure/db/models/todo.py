@@ -1,5 +1,5 @@
 from datetime import datetime
-import uuid_extensions 
+from uuid_extensions import uuid7
 from sqlalchemy import String, Boolean, DateTime, Uuid, text
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -13,7 +13,7 @@ class Todo(Base):
         Uuid(as_uuid=True),
         primary_key=True,
         nullable=False,
-        default=uuid_extensions.uuid7,
+        default=uuid7,
         index=True,
     )
     title: Mapped[str] = mapped_column(String(200), nullable=False, index=True)
